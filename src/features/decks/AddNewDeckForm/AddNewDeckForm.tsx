@@ -21,8 +21,7 @@ export const AddNewDeckForm = () => {
   const dispatch = useAppDispatch()
 
   const onSubmit = (data: FormValues) => {
-    console.log(data)
-    dispatch(addDeckTC(data.name))
+    dispatch(addDeckTC(data))
   }
 
   return (

@@ -8,9 +8,13 @@ export const instance = axios.create({
 })
 
 export const decksApi = {
-  fetchDecks: async () => await instance.get<FetchDecksResponseType>('/v2/decks'),
-  addDeck: async (name: string) => await instance.post<Deck>('/v1/decks', { name }),
+  fetchDecks: async () => await instance.get<FetchDecksResponseType>('v2/decks'),
+  addDeck: async (params: AddDeckParams) => await instance.post<Deck>('v1/decks', params),
 } as const
+
+export type AddDeckParams = {
+  name: string
+}
 
 type FetchDecksResponseType = {
   items: Deck[]
