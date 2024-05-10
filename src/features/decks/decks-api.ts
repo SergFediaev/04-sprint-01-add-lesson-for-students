@@ -9,7 +9,7 @@ export const instance = axios.create({
 
 export const decksApi = {
   async fetchDecks() {
-    return await instance.get<FetchDecksResponseType>('/v2/decks').then(response => response.data)
+    return await instance.get<FetchDecksResponseType>('/v2/decks').then(response => response.data.items)
   },
 } as const
 
@@ -25,7 +25,7 @@ type Pagination = {
   totalItems: number
 }
 
-type Deck = {
+export type Deck = {
   author: Author
   id: string
   userId: string
