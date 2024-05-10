@@ -9,7 +9,7 @@ export const instance = axios.create({
 
 export const decksApi = {
   async fetchDecks() {
-    return await instance.get<FetchDecksResponseType>('/v2/decks').then(response => response.data.items)
+    return await instance.get<FetchDecksResponseType>('/v2/decks')
   },
 } as const
 

@@ -11,7 +11,7 @@ export const DecksList = () => {
   const decks = useAppSelector(selectDecks)
 
   useEffect(() => {
-    decksApi.fetchDecks().then(decks => dispatch(setDecks(decks)))
+    decksApi.fetchDecks().then(response => dispatch(setDecks(response.data.items)))
   }, [dispatch])
 
   const items = decks.map(deck => <DeckItem key={deck.id} deck={deck} />)

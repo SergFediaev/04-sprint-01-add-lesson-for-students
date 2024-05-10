@@ -11,7 +11,7 @@ type DecksState = typeof initialState
 
 export const decksReducer = (state: DecksState = initialState, action: DecksActions): DecksState => {
   switch (action.type) {
-    case 'SET-DECKS':
+    case 'DECKS/SET-DECKS':
       return { ...state, decks: action.payload.decks }
     default:
       return state
@@ -21,5 +21,5 @@ export const decksReducer = (state: DecksState = initialState, action: DecksActi
 type DecksActions = ReturnType<typeof setDecks>
 
 export const setDecks = (decks: Deck[]) => ({
-  type: 'SET-DECKS', payload: { decks },
-})
+  type: 'DECKS/SET-DECKS', payload: { decks },
+} as const)
